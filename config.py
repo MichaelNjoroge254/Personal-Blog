@@ -18,7 +18,7 @@ class Config:
     SIMPLEMDE_USE_CDN = True
 
     # Database config
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://miro:password@localhost/andika' 
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:password@localhost/Personal-Blog' 
 
 class ProdConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
