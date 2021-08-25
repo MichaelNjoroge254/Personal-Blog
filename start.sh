@@ -1,6 +1,5 @@
-export SECRET_KEY='123125'
-export DATABASE_URI = 'postgresql+psycopg2://moringa:password@localhost/Personal-Blog'
-export MAIL_USERNAME='michael.m.njoroge254@gmail.com'
-export MAIL_PASSWORD='Santo'
+export SECRET_KEY='2001c'
+export MAIL_USERNAME='cynthiaobu940@gmail.com'
+export MAIL_PASSWORD='21038646'
 
-python3.8 manage.py server
+python3 manage.py server

@@ -1,15 +1,20 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,PasswordField,SubmitField, ValidationError, BooleanField, TextAreaField,SelectField
-from wtforms.validators import Required,Email,EqualTo, Length
+from wtforms import StringField, TextAreaField, SubmitField
+from flask_wtf.file import FileField,FileAllowed
+from flask_login import current_user
+from wtforms.validators import Required, Length, Email, EqualTo, ValidationError
 from ..models import User
 
-class CommentForm(FlaskForm):
-    comment = TextAreaField('Your comment:', validators=[Required()])
-    submit = SubmitField('Comment')
-
 class BlogForm(FlaskForm):
-    # category = SelectField('Category', choices=pitch_category, validators=[Required()])
-    tags = StringField('Categories:', validators=[Required()], render_kw={"placeholder": "Enter tags related to your blog(separate with commas)"})
-    title = StringField('Enter Title', validators=[Required(), Length(min = 3, max = 255)])
-    blog = TextAreaField('Blog:', render_kw={"placeholder": "Write blog here..."})
-    submit = SubmitField('Publish Blog')
+    title = StringField('Title', validators =[Required()])
+    content = TextAreaField('Content', validators = [Required()])
+    submit = SubmitField('Post Blog')
+
+class UpdateProfile(FlaskForm):
+    bio = TextAreaField('Tell us something about yourself',validators=[Required()])
+    submit = SubmitField('Submit')
+
+class CreateBlog(FlaskForm):
+    title = StringField('Title',validators=[Required()])
+    content = TextAreaField('Blog Content',validators=[Required()])
+    submit = SubmitField('Post')
