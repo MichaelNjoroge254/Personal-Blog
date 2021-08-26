@@ -126,7 +126,7 @@ def subscribe():
     email = request.form.get('subscriber')
     new_subscriber = Subscriber(email = email)
     new_subscriber.save_subscriber()
-    mail_message("Subscribed to the Blog","email/welcome_subscriber",new_subscriber.email,new_subscriber=new_subscriber)
+    # mail_message("Subscribed to the Blog","email/welcome_subscriber",new_subscriber.email,new_subscriber=new_subscriber)
     flash('Sucessfuly subscribed')
     return redirect(url_for('main.index'))
 
@@ -136,7 +136,7 @@ def delete_post(blog_id):
     blog = Blog.query.get(blog_id)
     if blog.user != current_user:
         abort(403)
-    db.session.delete(post)
+    db.session.delete(blog)
     db.session.commit()
     flash("You have deleted your Blog succesfully!")
     return redirect(url_for('main.home'))
